@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --background-color-light: #eeeeee;
+  --background-color-dark: #201e43;
+  --text-color-light: #e2e2b6;
+  --text-color-dark: #021526;
+  --primary-color: #134b70;
+  --secondary-color: #f6fb7a;
+  --gray: #939185;
+}
+
 * {
   outline: 1px solid red;
 }
@@ -5,6 +17,8 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color-light);
 }
 
 .container {
@@ -13,22 +27,53 @@ body {
     "sidebar header header header header header"
     "sidebar main main main main main"
     "sidebar main main main main main";
-  gap: 10px;
-  background-color: blue;
-  padding: 10px;
 }
 
 .sidebar {
-  grid-area: sidebar;
-  background-color: pink;
+  padding-left: 48px;
+  display: grid;
+  padding-top: 48px;
+  gap: 48px;
+  background-color: var(--background-color-dark);
+  color: var(--text-color-light);
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 32px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+
+.sidebar .navigation a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 24px;
+}
+
+.sidebar .navigation svg {
+  width: 24px;
+}
+
+.sidebar .navigation ul {
+  list-style-type: none;
+  display: grid;
+  gap: 12px;
+  padding: 0;
 }
 
 .header {
   grid-area: header;
-  background-color: violet;
+  background-color: var(--background-color-light);
 }
 
 .main-content {
   grid-area: main;
-  background-color: yellow;
+  background-color: var(--gray);
 }
