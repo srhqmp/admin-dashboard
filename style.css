@@ -27,6 +27,15 @@ body {
     "sidebar main main main main main";
 }
 
+.header a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
 .sidebar {
   grid-area: sidebar;
   padding: 24px 32px;
