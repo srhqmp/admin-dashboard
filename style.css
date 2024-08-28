@@ -7,22 +7,24 @@
   --text-color-dark: #021526;
   --primary-color: #134b70;
   --secondary-color: #f6fb7a;
-  --gray: #939185;
+  --gray: #ccc;
 }
 
 * {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background-color: var(--background-color-light);
+  background-color: var(--gray);
 }
 
 .container {
   display: grid;
+  max-width: 2000px;
+  margin: auto;
   grid-template-areas:
     "sidebar header header header header header"
     "sidebar main main main main main"
@@ -30,12 +32,13 @@ body {
 }
 
 .sidebar {
-  padding-left: 48px;
-  display: grid;
-  padding-top: 24px;
-  gap: 48px;
+  grid-area: sidebar;
+  padding: 24px 32px;
+  padding-right: 54px;
+  gap: 6px;
   background-color: var(--background-color-dark);
   color: var(--text-color-light);
+  height: 100%;
 }
 
 .sidebar .logo {
@@ -46,6 +49,11 @@ body {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
+  margin-bottom: 72px;
+}
+
+.sidebar .navigation {
+  margin-bottom: 72px;
 }
 
 .sidebar .navigation a {
@@ -77,8 +85,7 @@ body {
 .header {
   grid-area: header;
   background-color: var(--background-color-light);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .header svg {
@@ -129,7 +136,8 @@ body {
   color: var(--primary-color);
 }
 
-.user-avatar {
+.user-avatar,
+.user-avatar img {
   border-radius: 50%;
 }
 
@@ -165,8 +173,8 @@ body {
   margin-left: 26px;
 }
 
-h1,
-h3 {
+.user-welcome h1,
+.user-welcome h3 {
   margin: 0;
   padding: 0;
 }
@@ -202,5 +210,131 @@ h3 {
 
 .main-content {
   grid-area: main;
-  background-color: var(--gray);
+  display: grid;
+  grid-template-areas:
+    "projects projects announcements"
+    "projects projects trending";
+  gap: 24px;
+}
+
+.main-content h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.main-content .section {
+  padding: 24px;
+}
+
+.projects-section {
+  grid-area: projects;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.project {
+  background-color: var(--background-color-light);
+  padding: 24px 32px;
+  border-radius: 6px;
+  border-left: 12px solid var(--secondary-color);
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.project h3 {
+  color: var(--primary-color);
+}
+
+.projects p {
+  margin: 24px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.actions svg {
+  cursor: pointer;
+  width: 30px;
+  color: var(--primary-color);
+}
+
+.actions svg:hover {
+  color: var(--secondary-color);
+}
+
+.announcements-section {
+  grid-area: announcements;
+}
+
+.announcements {
+  background-color: var(--background-color-light);
+  padding: 32px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.announcement {
+  border-bottom: 1px solid var(--gray);
+  margin-bottom: 32px;
+  font-size: 12px;
+}
+
+.announcement:last-child {
+  border-bottom: none;
+}
+
+.trending-section {
+  grid-area: trending;
+}
+
+.trending {
+  background-color: var(--background-color-light);
+  padding: 32px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.trending .profile {
+  display: flex;
+  gap: 12px;
+}
+
+.trending .profile h3,
+.trending .profile p {
+  margin: 0;
+  padding: 0;
+}
+
+.trending .profile h3 {
+  margin-bottom: 6px;
+  font-weight: 400;
+  color: var(--text-color-dark);
+  font-size: 14px;
+}
+
+.user-avatar img {
+  width: 50px;
+  height: 50px;
+}
+
+.trending .profile p {
+  color: var(--background-color-dark);
+  font-size: 16px;
 }
